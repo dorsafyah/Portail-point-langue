@@ -34,6 +34,13 @@ export function App() {
     sauverReglages(reglages);
   }, [reglages]);
 
+  // Applique le thème au document (pilote les variables CSS).
+  useEffect(() => {
+    document.documentElement.dataset.theme = reglages.theme;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', reglages.theme === 'sombre' ? '#0f172a' : '#1e293b');
+  }, [reglages.theme]);
+
   // Garde l'index dans les bornes si la banque change de taille.
   useEffect(() => {
     if (index >= phrases.length) setIndex(Math.max(0, phrases.length - 1));
@@ -73,6 +80,21 @@ export function App() {
         </nav>
 
         <div className="entete__actions">
+          <button
+            type="button"
+            className="btn btn--petit"
+            onClick={() =>
+              majReglages({ theme: reglages.theme === 'sombre' ? 'clair' : 'sombre' })
+            }
+            title={
+              reglages.theme === 'sombre' ? 'Passer en thème clair' : 'Passer en thème sombre'
+            }
+            aria-label={
+              reglages.theme === 'sombre' ? 'Passer en thème clair' : 'Passer en thème sombre'
+            }
+          >
+            {reglages.theme === 'sombre' ? '☀ Clair' : '☾ Sombre'}
+          </button>
           {onglet === 'rituel' && (
             <button
               type="button"

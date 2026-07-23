@@ -24,10 +24,15 @@ export interface Phrase {
   dureeMinutes?: number;
 }
 
+/** Thème visuel de l'application. */
+export type Theme = 'clair' | 'sombre';
+
 /** Réglages persistés de l'application. */
 export interface Reglages {
   /** Durée par défaut du minuteur, en minutes. */
   dureeParDefaut: number;
   /** Signal sonore à la fin du minuteur. */
   sonFin: boolean;
+  /** Thème clair ou sombre. */
+  theme: Theme;
 }

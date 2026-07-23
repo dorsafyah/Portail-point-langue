@@ -1,15 +1,46 @@
 :root {
   --fond: #f1f5f9;
   --carte: #ffffff;
+  --carte-douce: #fcfdff;
   --texte: #1e293b;
   --texte-doux: #64748b;
   --bordure: #e2e8f0;
   --accent: #1e293b;
+  --accent-fort: #0f172a;
+  --accent-texte: #ffffff;
   --valider: #15803d;
   --danger: #b91c1c;
+  --corrige-fond: #f0fdf4;
+  --corrige-bordure: #86efac;
+  --corrige-texte: #14532d;
+  --saisie-corrige: #f8fdf9;
+  --reglages-fond: #fffbeb;
+  --reglages-bordure: #fde68a;
   --ombre: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.08);
   --radius: 14px;
   font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root[data-theme='sombre'] {
+  --fond: #0f172a;
+  --carte: #1e293b;
+  --carte-douce: #172033;
+  --texte: #e2e8f0;
+  --texte-doux: #94a3b8;
+  --bordure: #334155;
+  --accent: #6366f1;
+  --accent-fort: #818cf8;
+  --accent-texte: #ffffff;
+  --valider: #16a34a;
+  --danger: #ef4444;
+  --corrige-fond: #0f2a1a;
+  --corrige-bordure: #166534;
+  --corrige-texte: #bbf7d0;
+  --saisie-corrige: #14251c;
+  --reglages-fond: #2a2418;
+  --reglages-bordure: #78591c;
+  --ombre: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
 }
 
 * {
@@ -60,7 +91,7 @@ body {
   height: 44px;
   border-radius: 12px;
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-texte);
   font-size: 1.5rem;
 }
 
@@ -113,8 +144,8 @@ body {
   gap: 1.5rem;
   flex-wrap: wrap;
   padding: 1rem 1.5rem;
-  background: #fffbeb;
-  border-bottom: 1px solid #fde68a;
+  background: var(--reglages-fond);
+  border-bottom: 1px solid var(--reglages-bordure);
 }
 
 .reglages__interrupteur {
@@ -243,12 +274,12 @@ body {
 .consigne__corrige {
   margin: 0.5rem 0 0 2.9rem;
   padding: 0.75rem 1rem;
-  background: #f0fdf4;
-  border: 1px dashed #86efac;
+  background: var(--corrige-fond);
+  border: 1px dashed var(--corrige-bordure);
   border-radius: 10px;
   font-size: 1.05rem;
   line-height: 1.5;
-  color: #14532d;
+  color: var(--corrige-texte);
 }
 
 .scene__pied {
@@ -451,12 +482,12 @@ body {
 
 .btn--principal {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-texte);
   border-color: var(--accent);
 }
 
 .btn--principal:hover {
-  background: #0f172a;
+  background: var(--accent-fort);
 }
 
 .btn--valider {
@@ -475,7 +506,7 @@ body {
 }
 
 .btn--danger:hover {
-  background: #fef2f2;
+  background: rgba(220, 38, 38, 0.1);
 }
 
 .btn--fantome {
@@ -570,7 +601,7 @@ body {
   height: 22px;
   border-radius: 6px;
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-texte);
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -629,7 +660,7 @@ body {
 }
 
 .champ__saisie--corrige {
-  background: #f8fdf9;
+  background: var(--saisie-corrige);
 }
 
 .edition__consignes {
@@ -646,7 +677,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  background: #fcfdff;
+  background: var(--carte-douce);
 }
 
 .carte-consigne__entete {

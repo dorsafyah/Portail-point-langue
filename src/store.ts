@@ -4,9 +4,19 @@ import { PHRASES_PAR_DEFAUT } from './data/phrases';
 const CLE_PHRASES = 'ppl.phrases.v1';
 const CLE_REGLAGES = 'ppl.reglages.v1';
 
+/** Thème préféré du système (sombre si l'appareil est en mode sombre). */
+function themeSysteme(): Reglages['theme'] {
+  try {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair';
+  } catch {
+    return 'clair';
+  }
+}
+
 export const REGLAGES_PAR_DEFAUT: Reglages = {
   dureeParDefaut: 10,
   sonFin: true,
+  theme: 'clair',
 };
 
 /** Génère un identifiant unique simple (suffisant pour un usage local). */
@@ -35,10 +45,11 @@ export function sauverPhrases(phrases: Phrase[]): void {
 export function chargerReglages(): Reglages {
   try {
     const brut = localStorage.getItem(CLE_REGLAGES);
-    if (!brut) return { ...REGLAGES_PAR_DEFAUT };
+    // Première ouverture : on suit le thème du système.
+    if (!brut) return { ...REGLAGES_PAR_DEFAUT, theme: themeSysteme() };
     return { ...REGLAGES_PAR_DEFAUT, ...(JSON.parse(brut) as Partial<Reglages>) };
   } catch {
-    return { ...REGLAGES_PAR_DEFAUT };
+    return { ...REGLAGES_PAR_DEFAUT, theme: themeSysteme() };
   }
 }
 

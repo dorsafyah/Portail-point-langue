@@ -21,6 +21,8 @@ cahier, puis la classe confronte ses réponses au corrigé.
 - **Édition** : créez, modifiez, dupliquez ou supprimez vos propres phrases et consignes ;
   choisissez la notion (donc la couleur) et rédigez le corrigé. Import / export en JSON
   pour sauvegarder ou partager votre banque.
+- **Thème clair / sombre** : bascule dans l'en-tête (☾ / ☀). Au premier lancement, le
+  thème suit celui du système ; votre choix est ensuite mémorisé sur l'appareil.
 - **PWA hors-ligne** : après le premier chargement, l'application fonctionne sans réseau ;
   toutes les données sont stockées **localement** sur l'appareil.
 
