@@ -11,31 +11,27 @@ cahier, puis la classe confronte ses réponses au corrigé.
 
 ## Fonctionnalités
 
-- **Rituel (projection)** : phrase du jour en grand, consignes numérotées et colorées par
-  notion, minuteur circulaire (démarrer / pause / réinitialiser), affichage du corrigé,
-  navigation entre les phrases.
+- **Rituel (projection)** : phrase du jour en grand, consignes numérotées **en vert**
+  (code couleur des consignes, distinct de la phrase), minuteur circulaire (démarrer /
+  pause / réinitialiser), affichage du corrigé, navigation entre les phrases.
 - **Banque de phrases** couvrant la **période 1** : nature des mots, accord sujet-verbe,
   accord dans le groupe nominal, présent de l'indicatif **et ses valeurs**, imparfait de
   l'indicatif, fonctions **COD / COI / attribut du sujet**. Une consigne peut porter sur
   plusieurs notions.
 - **Édition** : créez, modifiez, dupliquez ou supprimez vos propres phrases et consignes ;
-  choisissez la notion (donc la couleur) et rédigez le corrigé. Import / export en JSON
-  pour sauvegarder ou partager votre banque.
+  indiquez la notion visée (affichée en étiquette) et rédigez le corrigé. Import / export
+  en JSON pour sauvegarder ou partager votre banque.
 - **Thème clair / sombre** : bascule dans l'en-tête (☾ / ☀). Au premier lancement, le
   thème suit celui du système ; votre choix est ensuite mémorisé sur l'appareil.
 - **PWA hors-ligne** : après le premier chargement, l'application fonctionne sans réseau ;
   toutes les données sont stockées **localement** sur l'appareil.
 
-## Code couleur des notions
+## Code couleur
 
-| Notion | Couleur |
-| --- | --- |
-| Nature des mots | violet |
-| Accord sujet-verbe | cyan |
-| Accord dans le groupe nominal | vert |
-| Présent de l'indicatif et ses valeurs | orange |
-| Imparfait de l'indicatif | bleu |
-| Fonctions (COD / COI / attribut) | rose |
+Les **consignes** sont toutes affichées en **vert**, couleur nettement distincte de la
+phrase (texte sombre neutre). La notion visée par chaque consigne (nature des mots, accord
+sujet-verbe, accord dans le GN, présent, imparfait, fonction) reste indiquée sous forme
+d'étiquette, sans couleur propre.
 
 ## Démarrer en développement
 

@@ -4,7 +4,6 @@ import { NOTIONS } from '../notions';
 import { useTimer } from '../useTimer';
 import { jouerSignalFin } from '../beep';
 import { Timer } from './Timer';
-import { Legende } from './Legende';
 
 interface RituelProps {
   phrases: Phrase[];
@@ -55,7 +54,6 @@ export function Rituel({ phrases, index, setIndex, reglages }: RituelProps) {
           <span className="scene__compteur">
             Phrase {index + 1} / {phrases.length}
           </span>
-          <Legende compacte />
         </div>
 
         <p className="phrase">{phrase.texte}</p>
@@ -63,35 +61,20 @@ export function Rituel({ phrases, index, setIndex, reglages }: RituelProps) {
         <div className="consignes">
           <h2 className="consignes__titre">Consignes</h2>
           <ol className="consignes__liste">
-            {phrase.consignes.map((c, i) => {
-              const meta = NOTIONS[c.notion];
-              return (
-                <li key={c.id} className="consigne">
-                  <div
-                    className="consigne__ligne"
-                    style={{ borderColor: meta.couleur, backgroundColor: meta.fond }}
-                  >
-                    <span className="consigne__num" style={{ backgroundColor: meta.couleur }}>
-                      {i + 1}
-                    </span>
-                    <span className="consigne__texte" style={{ color: meta.couleur }}>
-                      {c.question}
-                    </span>
-                    <span
-                      className="consigne__badge"
-                      style={{ color: meta.couleur, borderColor: meta.couleur }}
-                    >
-                      {meta.label}
-                    </span>
+            {phrase.consignes.map((c, i) => (
+              <li key={c.id} className="consigne">
+                <div className="consigne__ligne">
+                  <span className="consigne__num">{i + 1}</span>
+                  <span className="consigne__texte">{c.question}</span>
+                  <span className="consigne__badge">{NOTIONS[c.notion].label}</span>
+                </div>
+                {corrigeVisible && (
+                  <div className="consigne__corrige">
+                    <strong>Corrigé.</strong> {c.corrige}
                   </div>
-                  {corrigeVisible && (
-                    <div className="consigne__corrige">
-                      <strong>Corrigé.</strong> {c.corrige}
-                    </div>
-                  )}
-                </li>
-              );
-            })}
+                )}
+              </li>
+            ))}
           </ol>
         </div>
 
@@ -122,11 +105,8 @@ export function Rituel({ phrases, index, setIndex, reglages }: RituelProps) {
           <h3>Notions travaillées</h3>
           <ul>
             {[...notionsPresentes].map((n) => (
-              <li key={n} style={{ color: NOTIONS[n].couleur }}>
-                <span
-                  className="puce"
-                  style={{ backgroundColor: NOTIONS[n].couleur }}
-                />
+              <li key={n}>
+                <span className="puce" />
                 {NOTIONS[n].labelLong}
               </li>
             ))}
