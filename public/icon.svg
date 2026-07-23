@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#1e293b"/>
+  <!-- Crayon stylisé -->
+  <g transform="rotate(45 256 232)">
+    <rect x="226" y="96" width="60" height="210" rx="10" fill="#f8fafc"/>
+    <rect x="226" y="96" width="60" height="34" rx="10" fill="#f59e0b"/>
+    <path d="M226 306 L256 356 L286 306 Z" fill="#334155"/>
+    <path d="M244 336 L256 356 L268 336 Z" fill="#f8fafc"/>
+  </g>
+  <!-- Points du code couleur des notions -->
+  <g>
+    <circle cx="146" cy="418" r="20" fill="#7c3aed"/>
+    <circle cx="190" cy="418" r="20" fill="#0e7490"/>
+    <circle cx="234" cy="418" r="20" fill="#15803d"/>
+    <circle cx="278" cy="418" r="20" fill="#c2410c"/>
+    <circle cx="322" cy="418" r="20" fill="#1d4ed8"/>
+    <circle cx="366" cy="418" r="20" fill="#be185d"/>
+  </g>
+</svg>
